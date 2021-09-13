@@ -11,7 +11,8 @@ public class Tamagotchi
     private Random rnd = new Random();
     public Tamagotchi()
     {
-
+        Console.WriteLine("Choose a name for me uwu");
+        this.name = Console.ReadLine();
     }
     public bool GetAlive()
     {
@@ -21,28 +22,35 @@ public class Tamagotchi
     {
         words.Add(word);
         Console.WriteLine($"Succesfully added {word} to dictionary uwu");
+        ReduceBoredom();
     }
     public void Hi()
     {
         int index = rnd.Next(words.Count);
         Console.WriteLine(words[index]);
+        ReduceBoredom();
     }
     public void Feed()
     {
-
+        hunger -= 3;
+        hunger = Math.Max(0, hunger);
     }
     public void Tick()
     {
-
+        boredom++;
+        hunger++;
+        if (hunger > 10 || boredom > 10)
+            isAlive = false;
     }
     public void PrintStats()
     {
         Console.WriteLine("My name is" + name);
         Console.WriteLine($"I am {hunger} hungry uwu");
-        Console.WriteLine("");
+        Console.WriteLine($"I am {boredom} bored :(");
     }
     private void ReduceBoredom()
     {
-
+        boredom -= 2;
+        boredom = Math.Max(0, boredom);
     }
 }
