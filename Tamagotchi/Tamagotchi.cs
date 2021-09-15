@@ -33,6 +33,7 @@ public class Tamagotchi
     }
     public void Feed()
     {
+        Console.WriteLine("Thank you papi");
         hunger -= 4;
         hunger = Math.Max(0, hunger);
     }
@@ -45,7 +46,7 @@ public class Tamagotchi
     }
     public void PrintStats()
     {
-        Console.WriteLine("My name is" + name);
+        Console.WriteLine("My name is " + name);
         Console.WriteLine($"I am {hunger}/10 hungry uwu");
         Console.WriteLine($"I am {boredom}/10 bored :(");
     }
