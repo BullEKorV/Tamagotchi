@@ -8,32 +8,32 @@ class Program
         Tamagotchi tama = new Tamagotchi();
         while (tama.GetAlive())
         {
-            Console.WriteLine("Choose an action uwu");
+            tama.Tick();
+            Console.WriteLine("Choose an action:\n1: Feed me\n2: Teach me a word\n3: I'll say a word you've learnt me\n4: Wanna see my stats? ;)");
             string input = Console.ReadLine();
             switch (input.ToLower())
             {
-                case "feed":
+                case "1":
                     Console.WriteLine("Thank you papi");
                     tama.Feed();
-                    tama.Tick();
                     break;
-                case "teach":
+                case "2":
                     Console.WriteLine("What word would you like to teach me?");
                     string word = Console.ReadLine();
                     tama.Teach(word);
-                    tama.Tick();
                     break;
-                case "hi":
+                case "3":
                     tama.Hi();
-                    tama.Tick();
                     break;
-                case "stats":
+                case "4":
                     tama.PrintStats();
                     break;
                 default:
-                    Console.WriteLine("WRONG");
+                    Console.WriteLine("You did nothing smh");
                     break;
             }
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
